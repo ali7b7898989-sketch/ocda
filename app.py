@@ -17,7 +17,11 @@ else:
         genai.configure(api_key=api_key)
         
         # السطر الوحيد الخاص بالموديل وهو الأحدث والمطلوب في رسالة الخطأ
-        model = genai.GenerativeModel("gemini-3.6-flash")
+        model = genai.GenerativeModel(
+    "gemini-3.6-flash",
+    system_instruction="أنت مساعد سلوكي متخصص في التعامل مع طقوس الوسواس القهري (OCD) وتقنية منع الاستجابة (ERP). أي عبارة يكتبها المستخدم (مثل: لازم أعيد، أكرر، خايف، مو نظيف) فسرها فوراً كدافع وسواسي. وجّه المستخدم مباشرة لمقاومة التكرار بأسلوب مشجع، واجعل إجابتك مركزة ومباشرة في 2 إلى 3 جمل فقط دون إطالة أو مواضيع عامة."
+)
+
 
         if "messages" not in st.session_state:
             st.session_state.messages = []
