@@ -8,7 +8,8 @@ st.write("مرحباً بك. هذا التطبيق مخصص لمساعدتك ف�
 
 with st.sidebar:
     st.header("الإعدادات")
-    api_key = st.text_input("أدخل مفتاح Gemini API:", type="password")
+    api_key = st.secrets["GEMINI_API_KEY"]
+
 
 if not api_key:
     st.warning("يرجى إدخال مفتاح Gemini API في القائمة الجانبية للبدء.")
